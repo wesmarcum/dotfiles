@@ -1,0 +1,29 @@
+#!/usr/bin/env zsh
+
+##
+# Weather
+#
+# Get a weather forcast for your area from wttr.in.
+#
+# Usage:
+#   Current location - 'weather'
+#   Specify location - 'weather "New York, NY"'
+#   Provide view options - 'weather "New York, NY" 0m'
+
+function weather() {
+    # wtrr will guess your location by default if blank.
+    local location=""
+    local viewoptions="F"
+
+    # If location is given, substitute spaces for +.
+    if [[ ! -z "$1" ]]; then
+      location="${1// /+}"
+    fi
+
+    # Concatenate options, if given.
+    if [[ ! -z "$2" ]]; then
+      viewoptions="${viewoptions}${2}"
+    fi
+
+    curl -fGsS -H "Accept-Language: en" --compressed "wttr.in/${location}?${viewoptions}"
+}

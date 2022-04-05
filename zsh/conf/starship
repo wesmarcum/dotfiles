@@ -1,0 +1,23 @@
+# Disable the blank line at the start of the prompt
+add_newline = false
+
+# Disable the line break; enable single line prompt
+[line_break]
+disabled = true
+
+# Disable truncating git repos
+[directory]
+truncate_to_repo = false
+
+[username]
+format = "[$user]($style)@"
+
+# Show a red battery symbol at 10%
+[[battery.display]]
+threshold = 10
+style = "bold red"
+
+# Show a yellow battery symbol at 30%
+[[battery.display]]
+threshold = 30
+style = "bold yellow"

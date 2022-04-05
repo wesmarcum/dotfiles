@@ -1,0 +1,4 @@
+#!/usr/bin/env zsh
+
+# Set ZDOTDIR for config file location.
+ZDOTDIR=${HOME}/dotfiles/zsh

@@ -1,0 +1,209 @@
+""" Global options
+
+set nocompatible                        " Use Vim settings, rather than Vi
+syntax on                               " Enable syntax highlighting
+filetype plugin indent on               " Load filetype plugins and enable filetype based indentation
+set noswapfile                          " Disable the swap file
+set termguicolors                       " Enable true color support
+set mouse=a                             " Enable mouse mode
+set number                              " Display line numbers on the left
+set autoindent                          " Copy indent from the previous line, does not conflict with filetype indent
+set tabstop=8                           " Specifies the width of a tab character
+set softtabstop=4                       " Fine tunes the whitespace to be inserted, helps with backspace
+set shiftwidth=4                        " Amount of whitespace to insert or remove using indent in normal mode
+set expandtab                           " When enabled, use spaces instead of tabs
+set smarttab                            " a <Tab> in front of a line inserts blanks according to shiftwidth
+" set scrolloff=999                     " Min number of screen lines above/below
+set encoding=utf-8                      " Set encoding to UTF-8
+set ruler                               " Show line number, cursor position
+set showcmd                             " Display incomplete commands
+" set nowrap                            " Disable line wrap
+" set textwidth=70                      " Set text wrap width
+set wildmenu                            " Show autocomplete menus
+set showmode                            " Show editing mode
+set visualbell                          " Visual error bells
+set pastetoggle=<F4>                    " Toggle set paste / set nopaste with F4
+set listchars=tab:▸-,eol:$,trail:-      " Set characters for hidden/invisible with 'set list'
+
+""" Search options
+
+set incsearch                           " search as you type
+set ignorecase                          " ignore case
+set hlsearch                            " highlight search
+
+""" Load Plugins
+
+" Install vim-plug if not available
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+    silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" Load plugins via vim-plug -> https://github.com/junegunn/vim-plug
+" Specify a directory for plugins
+if has('nvim')
+    call plug#begin('~/.config/nvim/autoload/plugged')
+else
+    call plug#begin('~/.vim/plugged')
+endif
+
+" vim-airline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" colorschemes
+Plug 'joshdick/onedark.vim', { 'branch': 'main' }
+Plug 'arcticicestudio/nord-vim'
+Plug 'rakr/vim-one'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'lifepillar/vim-gruvbox8'
+Plug 'fneu/breezy'
+Plug 'kaicataldo/material.vim', { 'branch': 'main' }
+Plug 'crusoexia/vim-monokai'
+
+" vimwiki plugin for markdown notes
+Plug 'vimwiki/vimwiki'
+
+" git integration
+Plug 'tpope/vim-fugitive'
+
+" surround.vim
+Plug 'tpope/vim-surround'
+
+" nerd commenter
+Plug 'preservim/nerdcommenter'
+
+" markdown browser preview
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+
+" fzf.vim - fuzzy finder
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+" Initialize plugin system
+call plug#end()
+
+""" Plugin options
+
+" vim-airline
+let g:airline_theme='onedark'                               " Set theme
+let g:airline_powerline_fonts = 1                           " Use powerline fonts
+let g:airline#extensions#tabline#enabled = 1                " Enable top tab line
+let g:airline#extensions#tabline#formatter = 'default'      " Set filename formatter for tab line
+" let g:airline#extensions#tabline#left_sep = ' '           " Separator
+" let g:airline#extensions#tabline#left_alt_sep = '|'
+" let g:airline_statusline_ontop=1
+
+" vimwiki
+let g:vimwiki_list = [{'path': '$HOME/notes', 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_dir_link = 'index'
+let g:vimwiki_hl_headers = 1
+let g:vimwiki_hl_cb_checked = 1
+
+" nerd commenter
+let g:NERDSpaceDelims = 1                           " Add spaces after comment delimiters
+let g:NERDCompactSexyComs = 1                       " Use compact syntax
+let g:NERDCommentEmptyLines = 1                     " Allow commenting empty lines
+let g:NERDTrimTrailingWhitespace = 1                " Trim tailing whitespace
+
+" fzf
+let g:fzf_command_prefix = 'Fzf'
+
+""" Keyboard shortcuts
+
+" Remap ESC to 'jk'
+inoremap jk <ESC>
+
+" To insert timestamp, press F3.
+nmap <F3> a<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><Esc>
+imap <F3> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
+
+" To save, press ctrl-s.
+nmap <c-s> :w<CR>
+imap <c-s> <Esc>:w<CR>a
+
+" Mimic Emacs Line Editing in Insert Mode Only
+inoremap <C-A> <Home>
+inoremap <C-B> <Left>
+inoremap <C-E> <End>
+inoremap <C-F> <Right>
+" â is <Alt-B>
+inoremap â <C-Left>
+" æ is <Alt-F>
+inoremap æ <C-Right>
+inoremap <C-K> <Esc>lDa
+inoremap <C-U> <Esc>d0xi
+inoremap <C-Y> <Esc>Pa
+inoremap <C-X><C-S> <Esc>:w<CR>a
+
+" Rapidly toggle `set list`
+nmap <leader>l :set list!<CR>
+
+""" Spell check
+
+" disable spell check by default
+set nospell
+
+" Use underline for spell check results
+augroup SpellUnderline
+    autocmd!
+    autocmd ColorScheme *
+      \ highlight SpellBad
+      \   cterm=Underline
+      \   ctermfg=NONE
+      \   ctermbg=NONE
+      \   term=Reverse
+      \   gui=Undercurl
+      \   guisp=Red
+    autocmd ColorScheme *
+      \ highlight SpellCap
+      \   cterm=Underline
+      \   ctermfg=NONE
+      \   ctermbg=NONE
+      \   term=Reverse
+      \   gui=Undercurl
+      \   guisp=Red
+    autocmd ColorScheme *
+      \ highlight SpellLocal
+      \   cterm=Underline
+      \   ctermfg=NONE
+      \   ctermbg=NONE
+      \   term=Reverse
+      \   gui=Undercurl
+      \   guisp=Red
+    autocmd ColorScheme *
+      \ highlight SpellRare
+      \   cterm=Underline
+      \   ctermfg=NONE
+      \   ctermbg=NONE
+      \   term=Reverse
+      \   gui=Undercurl
+      \   guisp=Red
+augroup END
+
+" enable spell check for markdown
+augroup markdownSpell
+    autocmd!
+    autocmd FileType markdown setlocal spell
+    autocmd BufRead,BufNewFile *.md setlocal spell
+augroup END
+
+""" Filetype options
+
+" yaml
+autocmd FileType yaml setl indentkeys-=<:> ts=2 sts=2 sw=2 expandtab autoindent cursorline
+
+""" Color scheme
+if has("gui_running")
+    " Set window size
+    set lines=50 columns=175
+
+    " Remove gui toolbars
+    " set guioptions-=m
+    set guioptions-=T
+    colorscheme desert
+else
+    set background=dark
+    colorscheme onedark
+endif
