@@ -1,4 +1,5 @@
 zsh/conf/proxy
 zsh/conf/theme
+zsh/.zcompdump
 *.swp
 *.zwc
