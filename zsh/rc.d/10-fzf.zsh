@@ -9,20 +9,25 @@ if type fzf > /dev/null 2>&1; then
 
     # Source key bindings and completions for fzf package.
     if [[ $OSTYPE == linux* || $OSTYPE == freebsd* ]]; then
-        # Key bindings.
-        if [[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ]]; then
+        # Load keys/completion for Linux/FreeBSD
+        if [[ -d /usr/share/doc/fzf/examples ]]; then
+            # Debian.
             source /usr/share/doc/fzf/examples/key-bindings.zsh
-        elif [[ -f /usr/local/share/examples/fzf/shell/key-bindings.zsh ]]; then
+            source /usr/share/doc/fzf/examples/completion.zsh
+        elif [[ -d /usr/local/share/examples/fzf/shell ]]; then
+            # FreeBSD.
             source /usr/local/share/examples/fzf/shell/key-bindings.zsh
+            source /usr/local/share/examples/fzf/shell/completion.zsh
+        elif [[ -d /usr/share/fzf ]]; then
+            # Arch.
+            source /usr/share/fzf/key-bindings.zsh
+            source /usr/share/fzf/completion.zsh
         fi
 
-        # Completions.
-        if [[ -f /usr/share/doc/fzf/examples/completion.zsh ]]; then
-            source /usr/share/doc/fzf/examples/completion.zsh
-        elif [[ -f /usr/local/share/examples/fzf/shell/completion.zsh ]]; then
-            source /usr/local/share/examples/fzf/shell/completion.zsh
-        elif [[ -f /usr/share/zsh/vendor-completions/_fzf ]]; then
-            source /usr/share/zsh/vendor-completions/_fzf
+        # Keys/completion for NixOS.
+        if [[ -n "${commands[fzf-share]}" ]]; then
+          source "$(fzf-share)/key-bindings.zsh"
+          source "$(fzf-share)/completion.zsh"
         fi
     elif [[ $OSTYPE == darwin* ]]; then
         [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
