@@ -71,8 +71,9 @@ The install script will link `.zshenv` in your home directory to `~/dotfiles/zsh
 - 06-opts.zsh (zsh options, zstyle options)
 - 07-keys.zsh (emacs/vi mode, general keybindings)
 - 08-commands.zsh (commands, functions, and aliases)
-- 09-fzf.zsh (fzf options and environment variables)
-- 10-bat.zsh (bat options and environment variables)
+- 09-cursor.zsh (set cursor for viins and vicmd)
+- 10-fzf.zsh (fzf options and environment variables)
+- 11-bat.zsh (bat options and environment variables)
 
 [znap](https://github.com/marlonrichert/zsh-snap) is utilized for loading and managing plugins.  znap will automatically download and load all plugins the first time you launch zsh.  Plugins can then be updated with `znap pull`.  Check plugin status with `znap status`.
 
