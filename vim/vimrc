@@ -1,4 +1,4 @@
-""" Global options
+""" Global
 
 set nocompatible                        " Use Vim settings, rather than Vi
 syntax on                               " Enable syntax highlighting
@@ -25,7 +25,28 @@ set visualbell                          " Visual error bells
 set pastetoggle=<F4>                    " Toggle set paste / set nopaste with F4
 set listchars=tab:▸-,eol:$,trail:-      " Set characters for hidden/invisible with 'set list'
 
-""" Search options
+""" Cursor
+
+" Use a line cursor within insert mode and a block cursor everywhere else.
+"
+" Reference chart of values:
+"   Ps = 0  -> blinking block.
+"   Ps = 1  -> blinking block (default).
+"   Ps = 2  -> steady block.
+"   Ps = 3  -> blinking underline.
+"   Ps = 4  -> steady underline.
+"   Ps = 5  -> blinking bar (xterm).
+"   Ps = 6  -> steady bar (xterm).
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
+
+" Cursor fix for vim
+if !has('nvim')
+    autocmd VimEnter * silent exec "! echo -ne '\e[2 q'"
+    autocmd VimLeave * silent exec "! echo -ne '\e[6 q'"
+endif
+
+""" Search
 
 set incsearch                           " search as you type
 set ignorecase                          " ignore case
