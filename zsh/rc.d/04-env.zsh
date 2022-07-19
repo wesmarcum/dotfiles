@@ -45,8 +45,9 @@ export -UT INFOPATH infopath
 
 # (N) - null if file doesn't exist.
 path=(
-    /home/linuxbrew/.linuxbrew/bin(N)
     $path
+    /home/linuxbrew/.linuxbrew/bin(N)
+    /opt/homebrew/bin(N)
     /sbin
     /usr/sbin
     ~/.local/bin(N)
