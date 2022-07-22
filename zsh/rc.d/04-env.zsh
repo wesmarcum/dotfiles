@@ -79,3 +79,11 @@ if command -v brew > /dev/null; then
     # Include completions for brew.
     fpath+=( $HOMEBREW_PREFIX/share/zsh/site-functions )
 fi
+
+#
+# Nix
+#
+
+if [[ -e ~/.nix-profile/etc/profile.d/nix.sh ]]; then
+    source ~/.nix-profile/etc/profile.d/nix.sh
+fi
