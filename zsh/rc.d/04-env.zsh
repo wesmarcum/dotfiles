@@ -46,14 +46,19 @@ export -UT INFOPATH infopath
 # (N) - null if file doesn't exist.
 path=(
     $path
-    /home/linuxbrew/.linuxbrew/bin(N)
-    /opt/homebrew/bin(N)
     /sbin
     /usr/sbin
     ~/.local/bin(N)
     ~/bin(N)
+    # snapd
     /snap/bin(N)
+    # adb
     ~/adb-fastboot/platform-tools(N)
+    # brew
+    /home/linuxbrew/.linuxbrew/bin(N)
+    /opt/homebrew/bin(N)
+    # rust
+    ~/.cargo/bin(N)
     /usr/lib/cargo/bin(N)
 )
 
