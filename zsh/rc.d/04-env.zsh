@@ -84,6 +84,12 @@ fi
 # Nix
 #
 
+# Nix package manager
 if [[ -e ~/.nix-profile/etc/profile.d/nix.sh ]]; then
     source ~/.nix-profile/etc/profile.d/nix.sh
+fi
+
+# Nix home-manager
+if [[ -e ~/.nix-profile/etc/profile.d/hm-session-vars.sh ]]; then
+    source ~/.nix-profile/etc/profile.d/hm-session-vars.sh
 fi
