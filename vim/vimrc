@@ -102,6 +102,9 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
+" nix syntax highlighting
+Plug 'LnL7/vim-nix'
+
 " Initialize plugin system
 call plug#end()
 
