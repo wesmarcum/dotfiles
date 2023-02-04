@@ -2,3 +2,8 @@
 
 # Set ZDOTDIR for config file location.
 ZDOTDIR=${HOME}/dotfiles/zsh
+
+# Disable loading global zshrc (except macOS).
+if [[ ! ($OSTYPE == darwin* && $VENDOR == apple) ]]; then
+    setopt no_global_rcs
+fi
