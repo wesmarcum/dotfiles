@@ -23,11 +23,37 @@ pkg_freebsd_base="curl git neovim tmux vim-console zsh"
 pkg_recommended="bat fd-find fzf ripgrep zoxide"
 pkg_brew_recommended="bat fd fzf ripgrep zoxide"
 
-# Set default options.
-install_base="y"
-install_recommended="y"
-zsh_default="y"
-neovim_config="y"
+# Get OS and version info.
+if [[ -f /etc/os-release ]]; then
+    . /etc/os-release
+    OS=$NAME
+    VER=$VERSION_ID
+elif type lsb_release >/dev/null 2>&1; then
+    OS=$(lsb_release -si)
+    VER=$(lsb_release -sr)
+elif [[ -f /etc/lsb-release ]]; then
+    # Use this if the 'lsb_release' command isn't available.
+    . /etc/lsb-release
+    OS=$DISTRIB_ID
+    VER=$DISTRIB_RELEASE
+else
+    # Fall back to uname
+    OS=$(uname -s)
+    VER=$(uname -r)
+fi
+
+# Set default options. Bypass installing packages for NixOS.
+if [[ $OS == NixOS ]]; then
+    install_base="n"
+    install_recommended="n"
+    zsh_default="n"
+    neovim_config="y"
+else
+    install_base="y"
+    install_recommended="y"
+    zsh_default="y"
+    neovim_config="y"
+fi
 
 # neovim
 nvim_config_file=${HOME}/.config/nvim/init.vim
@@ -42,6 +68,9 @@ printf "|  .--.  |  |  |  | \`---|  |----\`|  |__   |  | |  |     |  |__     |  
 printf "|  |  |  |  |  |  |     |  |     |   __|  |  | |  |     |   __|     \   \ \n"
 printf "|  \'--\'  |  \`--\'  |     |  |     |  |     |  | |  \`----.|  |____.----)   |\n"
 printf "|_______/ \______/      |__|     |__|     |__| |_______||_______|_______/\n"
+printf "\n"
+printf "OS: ${OS}\n"
+printf "Version: ${VER}"
 printf "${nc}"
 printf "\n"
 
