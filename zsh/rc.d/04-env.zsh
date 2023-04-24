@@ -85,11 +85,19 @@ fi
 #
 
 # Nix package manager
-if [[ -e ~/.nix-profile/etc/profile.d/nix.sh ]]; then
+if [[ -e /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]]; then
+    # Multi user.
+    source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+elif [[ -e ~/.nix-profile/etc/profile.d/nix.sh ]]; then
+    # Single user.
     source ~/.nix-profile/etc/profile.d/nix.sh
 fi
 
 # Nix home-manager
 if [[ -e ~/.nix-profile/etc/profile.d/hm-session-vars.sh ]]; then
+    # User packages (default).
     source ~/.nix-profile/etc/profile.d/hm-session-vars.sh
+elif [[ -e "/etc/profiles/per-user/${USER}/etc/profile.d/hm-session-vars.sh" ]]; then
+    # Global packages.
+    source "/etc/profiles/per-user/${USER}/etc/profile.d/hm-session-vars.sh"
 fi
