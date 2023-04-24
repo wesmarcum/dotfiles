@@ -16,6 +16,7 @@
     export XDG_CACHE_HOME=~/.cache
     export XDG_DATA_HOME=~/.local/share
     export XDG_RUNTIME_DIR=~/.xdg
+    export XDG_DATA_DIRS=/usr/local/share:/usr/share
 
     # Doad all files in rc.d that start with number- and end in .zsh
     local file=

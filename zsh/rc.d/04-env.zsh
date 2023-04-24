@@ -101,3 +101,8 @@ elif [[ -e "/etc/profiles/per-user/${USER}/etc/profile.d/hm-session-vars.sh" ]];
     # Global packages.
     source "/etc/profiles/per-user/${USER}/etc/profile.d/hm-session-vars.sh"
 fi
+
+# Add ~/.nix-profile/share to XDG_DATA_DIRS for desktop apps.
+if type nix > /dev/null 2>&1; then
+   export XDG_DATA_DIRS="${HOME}/.nix-profile/share:${XDG_DATA_DIRS}"
+fi
