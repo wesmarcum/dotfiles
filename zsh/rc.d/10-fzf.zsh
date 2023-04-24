@@ -55,7 +55,7 @@ if type fzf > /dev/null 2>&1; then
     fi
 
     # Set default fzf options.
-    export FZF_DEFAULT_OPTS="--height 50% --layout=reverse --border=double --border-label-pos=10 --multi --color='dark,fg+:red'"
+    export FZF_DEFAULT_OPTS="--height 50% --layout=reverse --border=rounded --border-label-pos=10 --multi --color='dark,fg+:red'"
     export FZF_CTRL_T_OPTS="--border-label='| Home Files |'"
     export FZF_CTRL_R_OPTS="--border-label='| History |'"
 
