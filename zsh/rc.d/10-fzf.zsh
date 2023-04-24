@@ -56,9 +56,15 @@ if type fzf > /dev/null 2>&1; then
 
     # Set default fzf options.
     export FZF_DEFAULT_OPTS="--height 50% --layout=reverse --border=double --border-label-pos=10 --multi --color='dark,fg+:red'"
-    export FZF_ALT_C_OPTS="--border-label='| Home Directories |' --preview='tree -C {} | head -n 50'"
     export FZF_CTRL_T_OPTS="--border-label='| Home Files |'"
     export FZF_CTRL_R_OPTS="--border-label='| History |'"
+
+    # Use preview with 'tree' if available.
+    if type tree > /dev/null 2>&1; then
+        export FZF_ALT_C_OPTS="--border-label='| Home Directories |' --preview='tree -C {} | head -n 50'"
+    else
+        export FZF_ALT_C_OPTS="--border-label='| Home Directories |'"
+    fi
 
     # Load fzf functions.
     autoload -Uz fzf-rm
