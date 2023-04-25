@@ -73,7 +73,7 @@ if type fzf > /dev/null 2>&1; then
         fi
     else
         # Set standard options.
-        export FZF_DEFAULT_OPTS="--height 50% --layout=reverse --border=rounded --multi --color='dark,fg+:red'"
+        export FZF_DEFAULT_OPTS="--height 50% --layout=reverse --border=rounded --multi"
 
         # Use preview with 'tree' if available.
         if type tree > /dev/null 2>&1; then
