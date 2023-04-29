@@ -34,7 +34,14 @@ if type fzf > /dev/null 2>&1; then
           source "$(fzf-share)/completion.zsh"
         fi
     elif [[ $OSTYPE == darwin* ]]; then
-        [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+        if [[ -n "${commands[fzf-share]}" ]]; then
+          # nix.
+          source "$(fzf-share)/key-bindings.zsh"
+          source "$(fzf-share)/completion.zsh"
+        elif [[ -f ~/.fzf.zsh ]]; then
+          # brew.
+          source ~/.fzf.zsh
+        fi
     fi
 
     # Change the trigger to '++' instead of the default '**'.
