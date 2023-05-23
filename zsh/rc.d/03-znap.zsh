@@ -18,5 +18,5 @@ if [[ ! -f "${ZDATADIR}/zsh-snap/znap.zsh" ]]; then
 fi
 
 # Set znap plugin dir and load znap.
-zstyle ':znap:*' plugins-dir "${ZDATADIR}/plugins"
+zstyle ':znap:*' repos-dir "${ZDATADIR}/plugins"
 source "${ZDATADIR}/zsh-snap/znap.zsh"
