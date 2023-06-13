@@ -11,7 +11,7 @@ if type bat > /dev/null 2>&1 || type batcat > /dev/null 2>&1; then
     if type batcat > /dev/null 2>&1; then
         if [[ ! -L ~/.local/bin/bat ]]; then
             mkdir -p ~/.local/bin
-            ln -s $(which batcat) ~/.local/bin/bat
+            ln -s $(command -v batcat) ~/.local/bin/bat
         fi
     fi
 

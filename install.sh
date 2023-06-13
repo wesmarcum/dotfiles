@@ -190,7 +190,7 @@ if [[ $zsh_default =~ ^[yY]$ ]]; then
     echo
     printf "${yellow}===== Set zsh to Default Shell =====${nc}\n"
     echo
-    chsh -s $(which zsh)
+    chsh -s $(command -v zsh)
 fi
 
 # Set neovim configuration.
