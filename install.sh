@@ -59,6 +59,9 @@ fi
 nvim_config_file=${HOME}/.config/nvim/init.vim
 nvim_config_dir=${HOME}/.config/nvim
 
+# alacritty
+alacritty_config_file=${HOME}/.config/alacritty/alacritty.yml
+
 # Display awesome star wars style banner (https://manytools.org/hacker-tools/ascii-banner/)
 clear
 printf "${yellow}"
@@ -221,6 +224,12 @@ for file in ${dotfiles[@]}; do
     echo -e "${green}[*]${nc} Linking ${file##*/}"
     ln -sf "${dotfiles_dir}/${file}" "$HOME/.${file##*/}"
 done
+
+# Link alacritty config, if installed.
+if command -v alacritty > /dev/null; then
+    echo -e "${green}[*]${nc} Linking alacritty.yml"
+    ln -sf "${dotfiles_dir}/alacritty/alacritty.yml" "${alacritty_config_file}"
+fi
 
 echo
 echo -e "${green}[*]${nc} Done"
