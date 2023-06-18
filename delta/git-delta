@@ -2,7 +2,7 @@
 # To use, include the following configuration in ~/.gitconfig (without comments):
 #
 # [include]
-#        path = ~/dotfiles/zsh/conf/delta
+#        path = ~/dotfiles/delta/git-delta
 #
 
 [pager]

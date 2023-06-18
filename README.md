@@ -29,6 +29,19 @@ If you would like to manually install packages, use your package manager to inst
 
 ## Configuration
 
+### Alacritty
+
+Alacritty configuration is provided in `~/dotfiles/alacritty/alacritty.yml`. If Alacritty is installed, `install.sh` will link `~/.config/alacritty/alacritty.yml` to the location in `~/dotfiles`. This configuration file will optionally import `~/.config/alacritty/local.yml`. The `local.yml` file can be used to set system specific settings, such as fonts.
+
+### Delta
+
+Delta configuration is located in `~/dotfiles/delta/git-delta`. This package currently requires manual installation. If you wish to use the configuration provided, use an `include` directive in your `.gitconfig`:
+
+```
+[include]
+    path = ~/dotfiles/delta/git-delta
+```
+
 ### tmux
 
 `tmux.conf` sets keybindings to vim for movement and copy/paste.  `C-a` (Ctrl-a) is mapped to the prefix, instead of `C-b`.  Mouse mode is also enabled, so you can resize panes with your mouse.  A simple, light weight status line is set at the bottom.
@@ -135,10 +148,6 @@ Other zshrc features:
 - Bat integration.
 - fzf / fd integration.
 
-### Alacritty
-
-Alacritty configuration is provided in `~/dotfiles/alacritty/alacritty.yml`. If Alacritty is installed, `install.sh` will link `~/.config/alacritty/alacritty.yml` to the location in `~/dotfiles`. This configuration file will optionally import `~/.config/alacritty/local.yml`. The `local.yml` file can be used to set system specific settings, such as fonts.
-
 ## Recommended Tools
 
 The configuration files are optimized for the following tools:
@@ -154,5 +163,6 @@ These tools are not required, but can be installed using the `install.sh` script
 
 The following packages may require a manual install:
 - [alacritty](https://alacritty.org/)
+- [delta](https://github.com/dandavison/delta)
 
 Configuration files are provided for these packages and will be linked using `install.sh` if they are installed.
