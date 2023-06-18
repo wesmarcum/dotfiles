@@ -23,6 +23,25 @@ pkg_freebsd_base="curl git neovim tmux vim-console zsh"
 pkg_recommended="bat fd-find fzf ripgrep zoxide"
 pkg_brew_recommended="bat fd fzf ripgrep zoxide"
 
+# Package list for checking install status.
+declare -a packages
+packages=(
+    alacritty
+    bat
+    curl
+    delta
+    fd
+    fzf
+    git
+    nvim
+    rg
+    tmux
+    vim
+    zoxide
+    zsh
+)
+declare -r packages
+
 # Get OS and version info.
 if [[ -f /etc/os-release ]]; then
     . /etc/os-release
@@ -220,6 +239,7 @@ echo
 printf "${yellow}===== Link Files =====${nc}\n"
 echo
 
+# Link main configuration files.
 for file in ${dotfiles[@]}; do
     echo -e "${green}[*]${nc} Linking ${file##*/}"
     ln -sf "${dotfiles_dir}/${file}" "$HOME/.${file##*/}"
@@ -230,6 +250,22 @@ if command -v alacritty > /dev/null; then
     echo -e "${green}[*]${nc} Linking alacritty.yml"
     ln -sf "${dotfiles_dir}/alacritty/alacritty.yml" "${alacritty_config_file}"
 fi
+
+echo
+printf "${yellow}===== Package Status =====${nc}\n"
+echo
+
+# Check each package for installation status.
+# Print a table of the results.
+printf "| %-10s | %-10s |\n" "Name" "Status"
+printf "| %-10s | %-10s |\n" "==========" "=========="
+for p in ${packages[@]}; do
+    if command -v ${p} > /dev/null; then
+        printf "| %-10s | ${green}%-10s${nc} |\n" ${p} "installed"
+    else
+        printf "| %-10s | ${yellow}%-10s${nc} |\n" ${p} "not found"
+    fi
+done
 
 echo
 echo -e "${green}[*]${nc} Done"
