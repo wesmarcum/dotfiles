@@ -60,7 +60,7 @@ Color schemes:
 
 ### zsh
 
-The install script will link `.zshenv` in your home directory to `~/dotfiles/zsh/zshenv`.  The `zshenv` file will set the `$ZDOTDIR` variable to `~/dotfiles/zsh`.  This allows zsh to find `.zshrc` on startup.  
+The install script will link `.zshenv` in your home directory to `~/dotfiles/zsh/zshenv`.  The `zshenv` file will set the `$ZDOTDIR` variable to `~/dotfiles/zsh`.  This allows zsh to find `.zshrc` on startup.
 
 `~/dotfiles/zsh/.zshrc` loads files in the `~/dotfiles/zsh/rc.d` directory for a modular configuration:
 - 01-hist.zsh (set history file location and options)
@@ -135,6 +135,10 @@ Other zshrc features:
 - Bat integration.
 - fzf / fd integration.
 
+### Alacritty
+
+Alacritty configuration is provided in `~/dotfiles/alacritty/alacritty.yml`. If Alacritty is installed, `install.sh` will link `~/.config/alacritty/alacritty.yml` to the location in `~/dotfiles`. This configuration file will optionally import `~/.config/alacritty/local.yml`. The `local.yml` file can be used to set system specific settings, such as fonts.
+
 ## Recommended Tools
 
 The configuration files are optimized for the following tools:
@@ -145,3 +149,10 @@ The configuration files are optimized for the following tools:
 - [zoxide](https://github.com/ajeetdsouza/zoxide)
 
 These tools are not required, but can be installed using the `install.sh` script.
+
+## Manual Install
+
+The following packages may require a manual install:
+- [alacritty](https://alacritty.org/)
+
+Configuration files are provided for these packages and will be linked using `install.sh` if they are installed.
