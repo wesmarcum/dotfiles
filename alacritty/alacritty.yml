@@ -31,20 +31,23 @@ colors:
 
 ### Fonts
 
-font:
-  normal:
-    family: MesloLGS Nerd Font
-    style: Regular
-  bold:
-    family: MesloLGS Nerd Font
-    style: Bold
-  italic:
-    family: MesloLGS Nerd Font
-    style: Italic
-  bold_italic:
-    family: MesloLGS Nerd Font
-    style: Bold Italic
-  size: 12
+# To override system fonts, add a local configuration to ~/.config/alacritty/local.yml.
+# Example below setting font size and using Meslo Nerd Font.
+
+# font:
+  # normal:
+    # family: MesloLGS Nerd Font
+    # style: Regular
+  # bold:
+    # family: MesloLGS Nerd Font
+    # style: Bold
+  # italic:
+    # family: MesloLGS Nerd Font
+    # style: Italic
+  # bold_italic:
+    # family: MesloLGS Nerd Font
+    # style: Bold Italic
+  # size: 12
 
 ### Key bindings
 
@@ -77,3 +80,8 @@ selection:
 
 scrolling:
   history: 10000
+
+### Import local config
+
+import: 
+  - ~/.config/alacritty/local.yml
