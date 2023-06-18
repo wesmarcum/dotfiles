@@ -135,6 +135,10 @@ Other zshrc features:
 - Bat integration.
 - fzf / fd integration.
 
+### Alacritty
+
+Alacritty configuration is provided in `~/dotfiles/alacritty/alacritty.yml`. If Alacritty is installed, `install.sh` will link `~/.config/alacritty/alacritty.yml` to the location in `~/dotfiles`. This configuration file will optionally import `~/.config/alacritty/local.yml`. The `local.yml` file can be used to set system specific settings, such as fonts.
+
 ## Recommended Tools
 
 The configuration files are optimized for the following tools:
