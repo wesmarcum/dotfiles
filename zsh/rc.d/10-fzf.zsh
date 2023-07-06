@@ -38,9 +38,9 @@ if type fzf > /dev/null 2>&1; then
           # nix.
           source "$(fzf-share)/key-bindings.zsh"
           source "$(fzf-share)/completion.zsh"
-        elif [[ -f ~/.fzf.zsh ]]; then
+        elif [[ -f ~/.config/fzf/fzf.zsh ]]; then
           # brew.
-          source ~/.fzf.zsh
+          source ~/.config/fzf/fzf.zsh
         fi
     fi
 
