@@ -203,6 +203,9 @@ if [[ $install_recommended =~ ^[yY]$ ]]; then
             if [[ -x /usr/local/opt/fzf/install ]]; then
                 # Run fzf installer to generate key-bindings, completion.
                 /usr/local/opt/fzf/install --xdg --key-bindings --completion --no-update-rc --no-bash --no-fish 2>&1 > /dev/null
+            elif [[ -x /opt/homebrew/opt/fzf/install ]]; then
+                # fzf installer for arm based macs.
+                /opt/homebrew/opt/fzf/install --xdg --key-bindings --completion --no-update-rc --no-bash --no-fish 2>&1 > /dev/null
             fi
         else
             echo -e "${red}[*]${nc} Error: brew not found, unable to install recommended packages."
