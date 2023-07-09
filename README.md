@@ -152,6 +152,7 @@ Other zshrc features:
 
 The configuration files are optimized for the following tools:
 - [bat](https://github.com/sharkdp/bat)
+- [exa](https://github.com/ogham/exa)
 - [fd](https://github.com/sharkdp/fd)
 - [fzf](https://github.com/junegunn/fzf)
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
@@ -161,7 +162,7 @@ These tools are not required, but can be installed using the `install.sh` script
 
 ## Manual Install
 
-The following packages may require a manual install:
+The following packages _may_ require manual install or configuration:
 - [alacritty](https://alacritty.org/)
 - [delta](https://github.com/dandavison/delta)
 

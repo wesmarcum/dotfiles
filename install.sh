@@ -19,9 +19,10 @@ dotfiles_dir="$HOME/dotfiles"
 
 # Set package lists.
 pkg_base="curl git neovim tmux vim zsh"
+pkg_recommended="bat exa fd-find fzf ripgrep zoxide"
 pkg_freebsd_base="curl git neovim tmux vim-console zsh"
-pkg_recommended="bat fd-find fzf ripgrep zoxide"
-pkg_brew_recommended="bat fd fzf ripgrep zoxide"
+pkg_freebsd_recommended="bat exa fd-find fzf git-delta ripgrep zoxide"
+pkg_brew_recommended="bat exa fd fzf git-delta ripgrep zoxide"
 
 # Package list for checking install status.
 declare -a packages
@@ -30,6 +31,7 @@ packages=(
     bat
     curl
     delta
+    exa
     fd
     fzf
     git
@@ -188,9 +190,9 @@ if [[ $install_recommended =~ ^[yY]$ ]]; then
         fi
     elif [[ $OSTYPE == freebsd* ]]; then
         if type pkg > /dev/null 2>&1; then
-            echo -e "${green}[*]${nc} Installing recommended packages: ${pkg_recommended}"
+            echo -e "${green}[*]${nc} Installing recommended packages: ${pkg_freebsd_recommended}"
             echo
-            sudo pkg update && sudo pkg install -y ${pkg_recommended}
+            sudo pkg update && sudo pkg install -y ${pkg_freebsd_recommended}
         else
             echo -e "${red}[*]${nc} Error: pkg not found, unable to install recommended packages."
         fi

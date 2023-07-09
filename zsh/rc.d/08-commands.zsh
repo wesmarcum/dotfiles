@@ -4,8 +4,18 @@
 # Commands, functions, and aliases
 #
 
+# Use exa in place of ls if available.
+if command -v exa > /dev/null; then
+    alias l='exa -dF'
+    alias la='exa -a'
+    alias ll='exa -lgB'
+    alias lh='exa -lg'
+    alias ls='exa'
+    alias lsa='exa -lga'
+    alias lt='exa -lgT'
+    alias lg='exa -lg --git'
 # ls aliases - Linux.
-if [[ $OSTYPE == linux* ]]; then
+elif [[ $OSTYPE == linux* ]]; then
     alias l='ls -dF'
     alias la='ls -A'
     alias ll='ls -l'
