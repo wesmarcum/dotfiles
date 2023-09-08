@@ -19,10 +19,10 @@ dotfiles_dir="$HOME/dotfiles"
 
 # Set package lists.
 pkg_base="curl git neovim tmux vim zsh"
-pkg_recommended="bat exa fd-find fzf ripgrep zoxide"
+pkg_recommended="bat fd-find fzf ripgrep zoxide"
 pkg_freebsd_base="curl git neovim tmux vim-console zsh"
-pkg_freebsd_recommended="bat exa fd-find fzf git-delta ripgrep zoxide"
-pkg_brew_recommended="bat exa fd fzf git-delta ripgrep zoxide"
+pkg_freebsd_recommended="bat fd-find fzf git-delta ripgrep zoxide"
+pkg_brew_recommended="bat eza fd fzf git-delta ripgrep zoxide"
 
 # Package list for checking install status.
 declare -a packages
@@ -31,7 +31,7 @@ packages=(
     bat
     curl
     delta
-    exa
+    eza
     fd
     fzf
     git

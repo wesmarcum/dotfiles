@@ -4,8 +4,19 @@
 # Commands, functions, and aliases
 #
 
-# Use exa in place of ls if available.
-if command -v exa > /dev/null; then
+# Use eza in place of ls if available.
+if command -v eza > /dev/null; then
+    alias l='eza -dF'
+    alias la='eza -a'
+    alias ll='eza -lgB'
+    alias lh='eza -lg'
+    alias ls='eza'
+    alias lsa='eza -lga'
+    alias lt='eza -lgT'
+    alias lg='eza -lg --git'
+# Use exa if eza is not packaged yet.
+# Remove this block when eza is available in the debian repo.
+elif command -v exa > /dev/null; then
     alias l='exa -dF'
     alias la='exa -a'
     alias ll='exa -lgB'
