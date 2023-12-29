@@ -31,7 +31,9 @@ If you would like to manually install packages, use your package manager to inst
 
 ### Alacritty
 
-Alacritty configuration is provided in `~/dotfiles/alacritty/alacritty.yml`. If Alacritty is installed, `install.sh` will link `~/.config/alacritty/alacritty.yml` to the location in `~/dotfiles`. This configuration file will optionally import `~/.config/alacritty/local.yml`. The `local.yml` file can be used to set system specific settings, such as fonts.
+Alacritty configuration is provided in `~/dotfiles/alacritty/alacritty.toml`. If Alacritty is installed, `install.sh` will link `~/.config/alacritty/alacritty.toml` to the location in `~/dotfiles`. This configuration file will optionally import `~/.config/alacritty/local.toml`. The `local.toml` file can be used to set system specific settings, such as fonts.
+
+_Note:_ Starting with version [v0.13.0](https://github.com/alacritty/alacritty/releases/tag/v0.13.0), Alacritty uses TOML for configuration. YAML configuration is still provided for older versions, but may require manual linking.
 
 ### Delta
 
