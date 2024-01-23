@@ -4,7 +4,8 @@ return {
   {
     "navarasu/onedark.nvim",
     name = "onedark",
-    lazy = true,
+    priority = 1000,
+    lazy = false,
     opts = {
       -- Main options --
       style = "dark", -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
@@ -46,7 +47,37 @@ return {
     },
   },
 
-  -- Configure LazyVim to load onedark
+  -- catppuccin
+  -- https://github.com/catppuccin/nvim
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    lazy = false,
+    config = function()
+      require("catppuccin").setup({
+        flavour = "macchiato", -- mocha, macchiato, frappe, latte
+      })
+    end,
+  },
+
+  -- tokyonight
+  -- https://github.com/folke/tokyonight.nvim
+  {
+    "folke/tokyonight.nvim",
+    name = "tokyonight",
+    lazy = false,
+    opts = { transparent = false, style = "moon" },
+  },
+
+  -- nord
+  -- https://github.com/gbprod/nord.nvim
+  {
+    "gbprod/nord.nvim",
+    name = "nord",
+    lazy = false,
+  },
+
+  -- Configure LazyVim to load onedark by default.
   {
     "LazyVim/LazyVim",
     opts = {
