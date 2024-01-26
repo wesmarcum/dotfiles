@@ -16,13 +16,17 @@ vim.keymap.set(
 -- <leader>t to toggle 'set list'
 vim.keymap.set("n", "<leader>t", ":set list!<CR>", { noremap = true, silent = true, desc = "toggle list" })
 
--- Copy entire buffer into the system clipboard
+-- <leader>yy to copy entire buffer into the system clipboard
 vim.api.nvim_set_keymap(
   "n",
   "<leader>yy",
   ':lua vim.api.nvim_command("%y+")<CR>',
   { noremap = true, silent = true, desc = "yank buffer" }
 )
+
+-- <leader>dd / <leader>dt to insert date / time
+vim.keymap.set("n", "<leader>dd", ':r! date "+\\%m-\\%d-\\%Y" <CR>', { noremap = true, desc = "insert date" })
+vim.keymap.set("n", "<leader>dt", ':r! date "+\\%H:\\%M:\\%S" <CR>', { noremap = true, desc = "insert time" })
 
 -- Mimic Emacs line editing in insert mode
 vim.keymap.set("i", "<C-A>", "<Home>", { noremap = true })
