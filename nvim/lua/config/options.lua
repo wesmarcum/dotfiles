@@ -43,3 +43,6 @@ vim.opt.listchars = {
   conceal = "※",
 }
 vim.opt.list = false
+
+-- Auto complete
+vim.opt.completeopt = { "menu", "menuone", "noselect" }
