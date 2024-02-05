@@ -43,16 +43,17 @@ Delta configuration is located in `~/dotfiles/delta/git-delta`. This package cur
 [include]
     path = ~/dotfiles/delta/git-delta
 ```
+### Neovim
+
+The install script will link `~/.config/nvim` to `~/dotfiles/nvim`. This directory provides configuration files based on [LazyVim](https://www.lazyvim.org/). [OneDark](https://github.com/navarasu/onedark.nvim) is set as the default colorscheme. Configuration files can be found in `~/dotfiles/nvim/lua/config`. The `config` folder sets global options, including keymaps. Plugin options are located in `~/dotfiles/nvim/lua/plugins`.
 
 ### tmux
 
 `tmux.conf` sets keybindings to vim for movement and copy/paste.  `C-a` (Ctrl-a) is mapped to the prefix, instead of `C-b`.  Mouse mode is also enabled, so you can resize panes with your mouse.  A simple, light weight status line is set at the bottom.
 
-### vim/neovim
+### Vim
 
-`vimrc` uses [vim-plug](https://github.com/junegunn/vim-plug) to load plugins.  The first time you launch vim or neovim, vim-plug will be auto installed.  vim-plug will then automatically download plugins and themes.  You can then use `:PlugStatus` to check the plugin status, `:PlugUpdate` to update plugins, or `:PlugUpgrade` to upgrade vim-plug.  The colorscheme (theme) can be changed with the `:colorscheme` vim command.
-
-This configuration is also compatible with neovim.  To use with neovim, put `source ~/.vimrc` in your neovim configuration file (`.config/nvim/init.vim`).  The `install.sh` script can also do this for you.
+`vimrc` uses [vim-plug](https://github.com/junegunn/vim-plug) to load plugins.  The first time you launch vim, vim-plug will be auto installed.  vim-plug will then automatically download plugins and themes.  You can then use `:PlugStatus` to check the plugin status, `:PlugUpdate` to update plugins, or `:PlugUpgrade` to upgrade vim-plug.  The colorscheme (theme) can be changed with the `:colorscheme` vim command.
 
 Plugins:
 - [vim-airline](https://github.com/vim-airline/vim-airline)
