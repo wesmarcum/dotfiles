@@ -108,7 +108,7 @@ Plugins:
 - [zsh-history-substring-search](https://github.com/zsh-users/zsh-history-substring-search)
 - [zsh-hist](https://github.com/marlonrichert/zsh-hist)
 
-The prompt/theme is set in the `~/dotfiles/zsh/conf/theme` file.  If `theme` does not exist, the default theme will be set to agnoster.  To change the theme, just set the `theme` variable to a git repo.  The repo can be in short form (assumed github) or a full URL.  The syntax for OMZ is a little different:  you need to use `ohmyzsh/ohmyzsh <theme>` syntax.  Example `theme` files:
+The prompt/theme is set in the `~/dotfiles/zsh/conf/theme` file.  If `theme` does not exist, the default theme will be set to starship.  To change the theme, just set the `theme` variable to a git repo.  The repo can be in short form (assumed github) or a full URL.  The syntax for OMZ is a little different:  you need to use `ohmyzsh/ohmyzsh <theme>` syntax.  Example `theme` files:
 
 ```
 theme="starship/starship"

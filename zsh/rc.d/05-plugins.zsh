@@ -7,11 +7,11 @@
 # zsh built-in plugins
 zmodload zsh/complist
 
-# Set default theme.  Read from 'conf/theme', if the file exists.  Default to agnoster.
+# Set default theme.  Read from 'conf/theme', if the file exists.  Default to starship.
 if [[ -f "${ZDOTDIR}/conf/theme" ]]; then
     source "${ZDOTDIR}/conf/theme"
 else
-    theme="ohmyzsh/ohmyzsh agnoster"
+    theme="starship/starship"
 fi
 
 # Define color variables for output.
