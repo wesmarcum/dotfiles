@@ -1,3 +1,5 @@
+-- Set/load colorschemes
+-- change colorscheme with <leader>uC
 return {
   -- onedark
   -- https://github.com/navarasu/onedark.nvim

@@ -1,3 +1,5 @@
+-- dashboard
+-- https://github.com/nvimdev/dashboard-nvim
 return {
   "nvimdev/dashboard-nvim",
   event = "VimEnter",
