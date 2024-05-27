@@ -39,3 +39,11 @@ vim.keymap.set("i", "æ", "<C-Right>", { noremap = true }) -- <Alt-F>
 vim.keymap.set("i", "<C-U>", "<Esc>d0xi", { noremap = true })
 vim.keymap.set("i", "<C-Y>", "<Esc>Pa", { noremap = true })
 vim.keymap.set("i", "<C-X><C-S>", "<Esc>:w<CR>a", { noremap = true })
+
+-- <leader>ua to toggle autocomplete
+vim.api.nvim_set_keymap(
+  "n",
+  "<Leader>ua",
+  ":NvimCmpToggle<CR>",
+  { noremap = true, silent = true, desc = "Toggle Autocomplete" }
+)
