@@ -3,9 +3,9 @@
 return {
   "folke/which-key.nvim",
   opts = {
-    defaults = {
-      ["<leader>d"] = { name = "+date/time" },
-      ["<leader>y"] = { name = "+yank" },
+    spec = {
+      { "<leader>d", group = "date/time" },
+      { "<leader>y", group = "yank" },
     },
   },
 }
