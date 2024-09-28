@@ -72,8 +72,18 @@ if type fzf > /dev/null 2>&1; then
         }
     fi
 
-    # Set custom border.
-    export FZF_DEFAULT_OPTS="--height 50% --layout=reverse --border=double --border-label-pos=10 --multi --color='dark,fg+:red'"
+    # Set layout and theme.
+    export FZF_DEFAULT_OPTS='
+      --height 50%
+      --layout=reverse
+      --border=double
+      --border-label-pos=10
+      --multi
+      --marker="|" --pointer=">" --separator="─" --scrollbar="│"
+      --color=dark
+      --color=fg:-1,bg:-1,hl:#c678dd,fg+:#ffffff,bg+:#4b5263,hl+:#d858fe
+      --color=info:#98c379,prompt:#61afef,pointer:#be5046,marker:#e5c07b,spinner:#61afef,header:#61afef
+    '
     export FZF_CTRL_T_OPTS="--border-label='| Home Files |'"
     export FZF_CTRL_R_OPTS="--border-label='| History |'"
 
