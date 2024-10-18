@@ -50,16 +50,18 @@ path=(
     /usr/sbin
     ~/.local/bin(N)
     ~/bin(N)
-    # snapd
-    /snap/bin(N)
     # adb
     ~/adb-fastboot/platform-tools(N)
     # brew
     /home/linuxbrew/.linuxbrew/bin(N)
     /opt/homebrew/bin(N)
+    # go
+    ~/go/bin(N)
     # rust
     ~/.cargo/bin(N)
     /usr/lib/cargo/bin(N)
+    # snapd
+    /snap/bin(N)
 )
 
 fpath=(
