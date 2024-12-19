@@ -47,5 +47,7 @@ vim.opt.list = false
 -- Auto complete
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 
--- Set picker to telescope
-vim.g.lazyvim_picker = "telescope"
+-- Set picker
+-- Can be one of: telescope, fzf
+-- Leave it to "auto" to automatically use the picker
+vim.g.lazyvim_picker = "auto"

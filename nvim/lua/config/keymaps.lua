@@ -5,14 +5,6 @@
 -- Exit insert mode with jk
 vim.keymap.set("i", "jk", "<ESC>", { noremap = true, silent = true, desc = "<ESC>" })
 
--- <leader>sx to resume telescope search
-vim.keymap.set(
-  "n",
-  "<leader>sx",
-  require("telescope.builtin").resume,
-  { noremap = true, silent = true, desc = "Resume" }
-)
-
 -- <leader>t to toggle 'set list'
 vim.keymap.set("n", "<leader>t", ":set list!<CR>", { noremap = true, silent = true, desc = "toggle list" })
 
