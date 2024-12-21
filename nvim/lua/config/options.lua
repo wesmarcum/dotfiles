@@ -51,3 +51,9 @@ vim.opt.completeopt = { "menu", "menuone", "noselect" }
 -- Can be one of: telescope, fzf
 -- Leave it to "auto" to automatically use the picker
 vim.g.lazyvim_picker = "auto"
+
+-- LazyVim completion engine to use.
+-- Can be one of: nvim-cmp, blink.cmp
+-- Leave it to "auto" to automatically use the completion engine
+-- enabled with `:LazyExtras`
+vim.g.lazyvim_cmp = "auto"
