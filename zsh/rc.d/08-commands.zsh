@@ -80,3 +80,6 @@ alias zln='zmv -Lv'
 
 # Weather function for wttr.in forecast.
 autoload -Uz weather
+
+# zstats function for command line history frequency analysis.
+autoload -Uz zstats
