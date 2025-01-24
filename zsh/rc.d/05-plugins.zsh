@@ -49,6 +49,7 @@ case $theme in
         # run the install script if starship is not found
         if ! type starship > /dev/null 2>&1; then
             echo -e "${green}[*]${nc} Installing starship..."
+            [[ ! -d ${HOME}/.local/bin ]] && mkdir -p ${HOME}/.local/bin
             sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- -b ~/.local/bin -y > /dev/null
             echo -e "${green}[*]${nc} Done"
         fi
