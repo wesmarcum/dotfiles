@@ -16,9 +16,9 @@ vim.api.nvim_set_keymap(
   { noremap = true, silent = true, desc = "yank buffer" }
 )
 
--- <leader>dd / <leader>dt to insert date / time
-vim.keymap.set("n", "<leader>dd", ':r! date "+\\%m-\\%d-\\%Y" <CR>', { noremap = true, desc = "insert date" })
-vim.keymap.set("n", "<leader>dt", ':r! date "+\\%H:\\%M:\\%S" <CR>', { noremap = true, desc = "insert time" })
+-- <leader>Dd / <leader>Dt to insert date / time
+vim.keymap.set("n", "<leader>Dd", ':r! date "+\\%m-\\%d-\\%Y" <CR>', { noremap = true, desc = "insert date" })
+vim.keymap.set("n", "<leader>Dt", ':r! date "+\\%H:\\%M:\\%S" <CR>', { noremap = true, desc = "insert time" })
 
 -- Mimic Emacs line editing in insert mode
 vim.keymap.set("i", "<C-A>", "<Home>", { noremap = true })
