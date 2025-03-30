@@ -32,10 +32,12 @@ vim.keymap.set("i", "<C-U>", "<Esc>d0xi", { noremap = true })
 vim.keymap.set("i", "<C-Y>", "<Esc>Pa", { noremap = true })
 vim.keymap.set("i", "<C-X><C-S>", "<Esc>:w<CR>a", { noremap = true })
 
--- <leader>ua to toggle autocomplete
-vim.api.nvim_set_keymap(
-  "n",
-  "<Leader>ua",
-  ":NvimCmpToggle<CR>",
-  { noremap = true, silent = true, desc = "Toggle Autocomplete" }
-)
+-- <leader>bc to disable blink for current buffer
+vim.keymap.set("n", "<leader>bc", function()
+  vim.api.nvim_buf_set_var(0, "completion", false)
+end, { desc = "Disable blink.cmp for current buffer" })
+
+-- <leader>bC to enable blink for current buffer
+vim.keymap.set("n", "<leader>bC", function()
+  vim.api.nvim_buf_set_var(0, "completion", true)
+end, { desc = "Enable blink.cmp for current buffer" })
