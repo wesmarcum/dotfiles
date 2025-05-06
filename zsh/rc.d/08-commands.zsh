@@ -60,6 +60,11 @@ alias fgrep='fgrep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox
 # zsh startup benchmark.
 alias zbench='for i in $(seq 10); do; time zsh -lic exit; done'
 
+# zellij
+if command -v zellij > /dev/null; then
+    alias zj='zellij'
+fi
+
 # fixssh - updates SSH_AUTH_SOCK for tmux sessions.
 alias fixssh='eval $(tmux showenv -s SSH_AUTH_SOCK)'
 
