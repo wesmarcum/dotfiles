@@ -65,9 +65,6 @@ if command -v zellij > /dev/null; then
     alias zj='zellij'
 fi
 
-# fixssh - updates SSH_AUTH_SOCK for tmux sessions.
-alias fixssh='eval $(tmux showenv -s SSH_AUTH_SOCK)'
-
 # Associate file .extensions with programs.
 alias -s {css,gradle,html,js,json,md,patch,properties,txt,xml,yml,yaml}=$EDITOR
 alias -s gz='gzip -l'
@@ -88,3 +85,6 @@ autoload -Uz weather
 
 # zstats function for command line history frequency analysis.
 autoload -Uz zstats
+
+# fixssh function to update SSH_AUTH_SOCK
+autoload -Uz fixssh
