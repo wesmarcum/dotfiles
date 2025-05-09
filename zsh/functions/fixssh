@@ -1,0 +1,45 @@
+#!/usr/bin/env zsh
+
+##
+# fixssh
+#
+# Update the SSH_AUTH_SOCK environment variable for remote SSH sessions on Linux.
+# This is needed to refresh the value of SSH_AUTH_SOCK when reconnecting
+# to a remote tmux/zellij session with agent forwarding.
+#
+
+function fixssh() {
+
+    # Define color variables.
+    local red='\033[0;31m'
+    local green='\033[0;32m'
+    local yellow='\033[0;33m'
+    local bold='\033[0;1m'
+    local underline='\033[0;4m'
+    local nc='\033[0m'
+
+    if [[ -v ZELLIJ ]]; then
+        echo -e "${green}[*]${nc} zellij session found..."
+
+        if [[ -v SSH_AUTH_SOCK ]]; then
+            # local NEW_SOCK=$(find /tmp/ssh*/ -type s -name "*agent.*" | head -1)
+            local NEW_SOCK=$(fd -t s 'agent.*' /tmp/ssh*/ | head -1)
+            export SSH_AUTH_SOCK=$NEW_SOCK
+            echo -e "${green}[*]${nc} Updated SSH_AUTH_SOCK --> ${SSH_AUTH_SOCK}"
+        else
+            echo -e "${red}[*]${nc} Error: SSH_AUTH_SOCK not found"
+        fi
+    elif [[ -v TMUX ]]; then
+        echo -e "${green}[*]${nc} tmux session found..."
+
+        if [[ -v SSH_AUTH_SOCK ]]; then
+            eval $(tmux showenv -s SSH_AUTH_SOCK)
+            echo -e "${green}[*]${nc} Updated SSH_AUTH_SOCK --> ${SSH_AUTH_SOCK}"
+        else
+            echo -e "${red}[*]${nc} Error: SSH_AUTH_SOCK not found"
+        fi
+    else
+        echo -e "${red}[*]${nc} Error: no tmux or zellij session found"
+    fi
+
+}

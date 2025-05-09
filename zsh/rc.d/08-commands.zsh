@@ -60,8 +60,10 @@ alias fgrep='fgrep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox
 # zsh startup benchmark.
 alias zbench='for i in $(seq 10); do; time zsh -lic exit; done'
 
-# fixssh - updates SSH_AUTH_SOCK for tmux sessions.
-alias fixssh='eval $(tmux showenv -s SSH_AUTH_SOCK)'
+# zellij
+if command -v zellij > /dev/null; then
+    alias zj='zellij'
+fi
 
 # Associate file .extensions with programs.
 alias -s {css,gradle,html,js,json,md,patch,properties,txt,xml,yml,yaml}=$EDITOR
@@ -83,3 +85,6 @@ autoload -Uz weather
 
 # zstats function for command line history frequency analysis.
 autoload -Uz zstats
+
+# fixssh function to update SSH_AUTH_SOCK
+autoload -Uz fixssh
