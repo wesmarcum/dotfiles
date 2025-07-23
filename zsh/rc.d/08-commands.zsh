@@ -88,3 +88,6 @@ autoload -Uz zstats
 
 # fixssh function to update SSH_AUTH_SOCK
 autoload -Uz fixssh
+
+# sc (ssh connect) function for quickly connecting to ssh servers.
+autoload -Uz sc

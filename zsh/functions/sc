@@ -1,0 +1,18 @@
+#!/usr/bin/env zsh
+
+##
+# sc (ssh connect)
+#
+# Ref:
+# https://dev.to/kaeruct/fzf-ssh-config-hosts-23dj
+#
+# Quickly connect to ssh servers. This function searches "~/.ssh/config" and "~/.ssh/config.d/" for hosts and pipes the results to fzf.
+
+function sc() {
+    local target
+    target=$(rg '^Host ' ~/.ssh/config* | rg -Fv '*' | awk '{print $2}' | fzf --border-label='| SSH |' --no-multi)
+
+    if [[ -n $target ]]; then
+        ssh $target
+    fi
+}
