@@ -23,7 +23,7 @@ function fixssh() {
 
         if [[ -v SSH_AUTH_SOCK ]]; then
             # local NEW_SOCK=$(find /tmp/ssh*/ -type s -name "*agent.*" | head -1)
-            local NEW_SOCK=$(fd -t s 'agent.*' /tmp/ssh*/ | head -1)
+            local NEW_SOCK=$(fd -t s 's.*' ${HOME}/.ssh/agent | head -1)
             export SSH_AUTH_SOCK=$NEW_SOCK
             echo -e "${green}[*]${nc} Updated SSH_AUTH_SOCK --> ${SSH_AUTH_SOCK}"
         else
